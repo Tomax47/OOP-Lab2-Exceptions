@@ -103,9 +103,10 @@ public class Main extends Exception{
                 x = scan.nextDouble();
                 System.out.print("Enter a : ");
                 a = scan.nextInt();
-                if (x != a){
+                if (x != a && x < a ){
                     fArray[i] = F(x,a);
-                } else {
+                    System.out.println(fArray[i]);
+                } else  {
                     throw new Exceptions("Numerical error!",x,a);
                 }
 
@@ -123,13 +124,13 @@ public class Main extends Exception{
     }
 
 
-
-    //CALCULATING THE VALUE OF THE FUNCTION
-    public static double F(double x, double a) {
-        if (x<0) {
-            return x +Math.pow(Math.sin((1/(x-a))+4),2);
+//    CALCULATING THE VALUE OF THE FUNCTION
+    public static double F(double x, int a) {
+        if (x < 0) {
+            return (x + Math.pow(Math.sin((1 / (x - a)) + 4), 2));
         } else {
-            return (a*x)/(Math.sqrt(a*a - x*x));
+            return (a * x) / (Math.sqrt(a * a - x * x));
         }
     }
+
 }

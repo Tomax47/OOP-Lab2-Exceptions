@@ -22,6 +22,7 @@ public class Exceptions extends Exception {
     public String getMessage() {
         String message = " ";
         if (x == a) message = "Diving by zero is not possible";
+        else if (x > a) message = "It's not possible to have a root with a negative content!";
         return message;
     }
 }
