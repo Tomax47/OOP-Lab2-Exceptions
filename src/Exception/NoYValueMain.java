@@ -11,15 +11,28 @@ public class NoYValueMain {
 
         try {
 
-            int n, belongingPoints=0; double x, y;
+            int n, belongingPoints=0;
             System.out.print("Enter the number of points : ");
             n = scan.nextInt();
+            double[] x = new double[n];
+            double[] y = new double[n];
+
+            for (int i = 0; i < x.length; i++) {
+                System.out.print("Enter the value of x :");
+                x[i] = scan.nextDouble();
+                System.out.print("Enter the value of the corresponding y : ");
+                char yString = scan.next().charAt(0);
+                if (yString == ' ') {
+                    continue;
+                }
+                y[i] = Integer.parseInt(String.valueOf(yString));
+            }
+
             for (int i = 0; i < n; i++) {
-                System.out.print("Enter x : ");
-                x = scan.nextDouble();
-                System.out.print("Enter y : ");
-                y = scan.nextDouble();
-                if(belongToTheArea(x,y)) {
+                if (y[i] == 0) {
+                    continue;
+                }
+                if (belongToTheArea(x[i],y[i])) {
                     belongingPoints++;
                 }
             }
